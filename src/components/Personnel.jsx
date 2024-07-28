@@ -1,26 +1,65 @@
-import { Loop } from "../lib"
+import { useEffect, useState } from "react";
+import { Loop, Tick } from "../lib";
+import axios from "axios";
 
-export default function Personnel() {
-    return(
+export default function Resident() {
+    useEffect(() => {
+        Tick(RecognizeFilteringMethod)
+    }, []);
+
+    const [data, sendData] = useState({});
+
+    const SearchAccounts = async (keyword) => {
+        const search = {
+            id: keyword,
+            fname: keyword,
+            mname: keyword,
+            lname: keyword
+        };
+
+        const res = await axios.post('http://localhost:4435/accounts/search', search);
+        sendData(res.data);
+    }
+
+    const OrderById = async () => {
+        const res = await axios.get('http://localhost:4435/accounts/order/id');
+        sendData(res.data);
+    }
+
+    const RecognizeFilteringMethod = () => {
+        let search = document.querySelector('#searchAccounts');
+
+        if (search.value !== "") return SearchAccounts(search.value);
+
+        return OrderById();
+    }
+
+    return (
         <>
-            <div className="col-span-12 flex bg-white justify-end items-end fixed z-10 left-0 right-1 top-10 px-4 py-4 ">
-                <button className="btn bg-blue-500 waves-effect mx-1">
-                    <i className="material-icons text-white">add</i>
-                </button>
+            <div className="row">
+                <div className="col s6 flex justify-start bg-white sticky z-10 left-0  top-10 py-4 ">
+                    <div className="input-field outlined">
+                        <input id="searchAccounts" placeholder="Search accounts" />
+                    </div>
+                </div>
 
-                <button className="btn bg-green-500 waves-effect mx-1">
-                    <i className="material-icons text-white">edit</i>
-                </button>
+                <div className="col s6 flex justify-end bg-white sticky z-10 left-0  top-10 py-4 ">
+                    <button className="btn bg-blue-500 waves-effect mx-1">
+                        <i className="material-icons text-white">add</i>
+                    </button>
 
-                <button className="btn bg-red-500 waves-effect mx-1">
-                    <i className="material-icons text-white">delete</i>
-                </button>
-            </div>
+                    <button className="btn bg-green-500 waves-effect mx-1">
+                        <i className="material-icons text-white">edit</i>
+                    </button>
 
-            <div className="col-span-12">
-                <table className="centered">
-                    <thead>
-                        <tr>
+                    <button className="btn bg-red-500 waves-effect mx-1">
+                        <i className="material-icons text-white">delete</i>
+                    </button>
+                </div>
+
+                <div className="col s12">
+                    <table className="centered">
+                        <thead>
                             <th>Firstname</th>
                             <th>Middlename</th>
                             <th>Lastname</th>
@@ -29,23 +68,25 @@ export default function Personnel() {
                             <th>Civil Status</th>
                             <th>Occupation</th>
                             <th>Date of Birth</th>
-                        </tr>
-                    </thead>
+                        </thead>
 
-                    <Loop repeat={10}>
-                        {(index) => <tr key={index}>
-                            <td className="text-center">Yuuki</td>
-                            <td className="text-center">Yuuki</td>
-                            <td className="text-center">Yuuki</td>
-                            <td className="text-center">Yuuki</td>
-                            <td className="text-center">Yuuki</td>
-                            <td className="text-center">Yuuki</td>
-                            <td className="text-center">Yuuki</td>
-                            <td className="text-center">Yuuki</td>
-                        </tr>}
-                    </Loop>
-                </table>
+                        <tbody>
+                            <Loop repeat={data.length}>
+                                {(index) => <tr key={index}>
+                                    <td className="text-center">{data[index].fname}</td>
+                                    <td className="text-center">{data[index].mname}</td>
+                                    <td className="text-center">{data[index].lname}</td>
+                                    <td className="text-center">{data[index].age}</td>
+                                    <td className="text-center">{data[index].sex}</td>
+                                    <td className="text-center">{data[index].civilstatus}</td>
+                                    <td className="text-center">{data[index].occupation}</td>
+                                    <td className="text-center">{data[index].birthday}</td>
+                                </tr>}
+                            </Loop>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </>
-    )
+    );
 }

@@ -36,14 +36,14 @@ export default function Resident() {
 
     return (
         <>
-            <div className="row">
-                <div className="col s6 flex justify-start bg-white sticky z-10 left-0  top-10 py-4 ">
+            <div className="row h-screen">
+                <div className="col s6 flex justify-start bg-white sticky z-10 left-0  top-10 py-4 bg-transparent">
                     <div className="input-field outlined">
                         <input id="searchAccounts" placeholder="Search accounts" />
                     </div>
                 </div>
 
-                <div className="col s6 flex justify-end bg-white sticky z-10 left-0  top-10 py-4 ">
+                <div className="col s6 flex justify-end bg-white sticky z-10 left-0  top-10 py-4 bg-transparent ">
                     <button className="btn bg-blue-500 waves-effect mx-1">
                         <i className="material-icons text-white">add</i>
                     </button>
@@ -59,7 +59,7 @@ export default function Resident() {
 
                 <div className="col s12">
                     <table className="centered">
-                        <thead>
+                        <thead className="text-white">
                             <th>Firstname</th>
                             <th>Middlename</th>
                             <th>Lastname</th>
@@ -70,7 +70,7 @@ export default function Resident() {
                             <th>Date of Birth</th>
                         </thead>
 
-                        <tbody>
+                        <tbody className="text-white">
                             <Loop repeat={data.length}>
                                 {(index) => <tr key={index}>
                                     <td className="text-center">{data[index].fname}</td>

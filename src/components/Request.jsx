@@ -18,26 +18,28 @@ export default function Request() {
                     <p className="text-4xl mb-5">What To Request</p>
 
                     <form>
-                        <p>
-                            <label htmlFor="indigency">
-                                <input type="checkbox" name="indigency" id="indigency" />
-                                INDIGENCY
-                            </label>
-                        </p>
+                        <div className="flex w-100 justify-center gap-10 align-middle">
+                            <p>
+                                <label htmlFor="indigency" className="text-white">
+                                    <input type="checkbox" name="indigency" id="indigency" />
+                                    INDIGENCY
+                                </label>
+                            </p>
 
-                        <p>
-                            <label htmlFor="residency">
-                                <input type="checkbox" name="residency" id="residency" />
-                                RESIDENCY
-                            </label>
-                        </p>
+                            <p>
+                                <label htmlFor="residency" className="text-white">
+                                    <input type="checkbox" name="residency" id="residency" />
+                                    RESIDENCY
+                                </label>
+                            </p>
 
-                        <p>
-                            <label htmlFor="residency">
-                                <input type="checkbox" name="clearance" id="clearance" />
-                                CLEARANCE
-                            </label>
-                        </p>
+                            <p>
+                                <label htmlFor="residency" className="text-white">
+                                    <input type="checkbox" name="clearance" id="clearance" />
+                                    CLEARANCE
+                                </label>
+                            </p>
+                        </div>
 
                         <button className="btn-large bg-green-500 waves-effect mt-10" type="submit">SUBMIT</button>
                     </form>

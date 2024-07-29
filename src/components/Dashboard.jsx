@@ -27,13 +27,13 @@ export default function Dashboard() {
 
             <div className='row'>
                 <div className='col-span-12 sticky z-50 top-0 right-0 bottom-0 left-0'>
-                    <ul className='tabs flex justify-end'>
-                        <li className='tab col-span-2'><a href='#home' className='active'>Home</a></li>
-                        <li className='tab col-span-2'><a href='#request'>Request</a></li>
-                        <li className='tab col-span-2'><a href='#resident'>Resident List</a></li>
-                        <li className='tab col-span-2'><a href='#personnel'>Personnel</a></li>
-                        <li className='tab col-span-2'><a data-target='more' id='d1' className='dropdown-trigger btn'>More</a></li>
-                        <li className='tab col-span-2'><a data-target='settings' className='dropdown-trigger pt-2'><i className='material-icons'>settings</i></a></li>
+                    <ul className='tabs flex justify-end bg-transparent'>
+                        <li className='tab col-span-2'><a href='#home' className='active'><span className="text-white">Home</span></a></li>
+                        <li className='tab col-span-2'><a href='#request'><span className="text-white">Request</span></a></li>
+                        <li className='tab col-span-2'><a href='#resident'><span className="text-white">Resident List</span></a></li>
+                        <li className='tab col-span-2'><a href='#personnel'><span className="text-white">Personnel</span></a></li>
+                        <li className='tab col-span-2'><a data-target='more' id='d1' className='dropdown-trigger btn'><span className="text-white">More</span></a></li>
+                        <li className='tab col-span-2'><a data-target='settings' className='dropdown-trigger pt-2'><i className='material-icons text-white'>settings</i></a></li>
                     </ul>
                 </div>
 

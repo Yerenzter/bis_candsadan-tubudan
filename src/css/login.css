@@ -1,3 +1,7 @@
 .bg-login {
     /* CODE GOES HERE */
+    background-image: url(57e11ee15f71cff079de51af39b696cd.jpg);
+    background-repeat: no-repeat;
+    background-position: center; 
+    background-size: cover;  
 }

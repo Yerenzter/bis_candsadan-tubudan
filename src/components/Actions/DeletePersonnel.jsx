@@ -11,8 +11,9 @@ async function RemovePersonnel() {
   await axios.post("http://localhost:4435/accounts/delete", data);
 }
 
-export function SetPersonnelInfo(idXYZ) {
-  return (id = idXYZ);
+export function SetPersonnelInfo(idXYZ, nameXYZ) {
+  id = idXYZ;
+  name = nameXYZ;
 }
 
 export default function DeletePersonnel() {

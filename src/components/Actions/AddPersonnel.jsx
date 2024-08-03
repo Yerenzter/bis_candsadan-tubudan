@@ -56,12 +56,12 @@ export default function AddPersonnel() {
                     id="addAccSex"
                     className="dropdown-trigger"
                     placeholder="Sex"
-                    data-target="selectResSex"
+                    data-target="selectAddResSex"
                     readOnly={true}
                   />
                 </div>
 
-                <ul id="selectResSex" className="dropdown-content">
+                <ul id="selectAddResSex" className="dropdown-content">
                   <li onClick={() => (addAccSex.value = "Male")}>
                     <a href="#">Male</a>
                   </li>
@@ -77,12 +77,12 @@ export default function AddPersonnel() {
                     id="addAccCivilStatus"
                     className="dropdown-trigger"
                     placeholder="Civil status"
-                    data-target="selectResCivilStatus"
+                    data-target="selectAddResCivilStatus"
                     readOnly={true}
                   />
                 </div>
 
-                <ul id="selectResCivilStatus" className="dropdown-content">
+                <ul id="selectAddResCivilStatus" className="dropdown-content">
                   <li onClick={() => (addAccCivilStatus.value = "Single")}>
                     <a href="#">Single</a>
                   </li>

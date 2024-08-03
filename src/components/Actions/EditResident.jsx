@@ -49,8 +49,8 @@ export function FillResidentForm(
   a = fname;
   b = mname;
   c = lname;
-  d = sex;
-  e = age;
+  d = age;
+  e = sex;
   f = civilstatus;
   g = occupation;
   h = birthday;
@@ -101,13 +101,13 @@ export default function EditResident() {
                     id="editResSex"
                     className="dropdown-trigger"
                     placeholder="Sex"
-                    data-target="selectResSex"
+                    data-target="selectEditResSex"
                     readOnly={true}
                     defaultValue={e}
                   />
                 </div>
 
-                <ul id="selectResSex" className="dropdown-content">
+                <ul id="selectEditResSex" className="dropdown-content">
                   <li onClick={() => (editResSex.value = "Male")}>
                     <a href="#">Male</a>
                   </li>
@@ -123,13 +123,13 @@ export default function EditResident() {
                     id="editResCivilStatus"
                     className="dropdown-trigger"
                     placeholder="Civil status"
-                    data-target="selectResCivilStatus"
+                    data-target="selectEditResCivilStatus"
                     readOnly={true}
                     defaultValue={f}
                   />
                 </div>
 
-                <ul id="selectResCivilStatus" className="dropdown-content">
+                <ul id="selectEditResCivilStatus" className="dropdown-content">
                   <li onClick={() => (editResCivilStatus.value = "Single")}>
                     <a href="#">Single</a>
                   </li>
@@ -157,6 +157,7 @@ export default function EditResident() {
                 <input
                   id="editResBirthday"
                   type="date"
+                  defaultValue={h}
                   placeholder="Birthday"
                 />
               </div>

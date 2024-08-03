@@ -20,7 +20,7 @@ server.use(
 server.post("/accounts/post", async (req, res) => {
   const task = req.body;
   const data = await db.pool.query(
-    "INSERT INTO accounts VALUES(id, ?,?,?,?,?,?,?,?,?)",
+    "INSERT INTO accounts VALUES(id, ?,?,?,?,?,?,?,?)",
     [
       task.fname,
       task.mname,
@@ -69,8 +69,8 @@ server.post("/residents/post", async (req, res) => {
 server.post("/residents/search", async (req, res) => {
   const task = req.body;
   const data = await db.pool.query(
-    "SELECT * FROM residents WHERE id=? OR fname=? OR mname=? OR lname=?",
-    [task.id, task.fname, task.mname, task.lname]
+    "SELECT * FROM residents WHERE id=? OR fname=? OR mname=? OR lname=? OR occupation=?",
+    [task.id, task.fname, task.mname, task.lname, task.occupation]
   );
 
   res.send(data);
@@ -117,13 +117,13 @@ server.put("/accounts/edit", async (req, res) => {
       task.age,
       task.sex,
       task.civilstatus,
-      task.occcupation,
+      task.occupation,
       task.birthday,
       task.id,
     ]
   );
 
-  res.send(data);
+  console.log(data);
 });
 
 server.put("/residents/edit", async (req, res) => {
@@ -137,13 +137,13 @@ server.put("/residents/edit", async (req, res) => {
       task.age,
       task.sex,
       task.civilstatus,
-      task.occcupation,
+      task.occupation,
       task.birthday,
       task.id,
     ]
   );
 
-  res.send(data);
+  console.log(data);
 });
 
 server.listen(port, () =>

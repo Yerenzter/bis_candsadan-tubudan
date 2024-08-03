@@ -56,12 +56,12 @@ export default function AddResident() {
                     id="addResSex"
                     className="dropdown-trigger"
                     placeholder="Sex"
-                    data-target="selectResSex"
+                    data-target="select-sex"
                     readOnly={true}
                   />
                 </div>
 
-                <ul id="selectResSex" className="dropdown-content">
+                <ul id="select-sex" className="dropdown-content">
                   <li onClick={() => (addResSex.value = "Male")}>
                     <a href="#">Male</a>
                   </li>
@@ -77,12 +77,12 @@ export default function AddResident() {
                     id="addResCivilStatus"
                     className="dropdown-trigger"
                     placeholder="Civil status"
-                    data-target="selectResCivilStatus"
+                    data-target="select-civil-status"
                     readOnly={true}
                   />
                 </div>
 
-                <ul id="selectResCivilStatus" className="dropdown-content">
+                <ul id="select-civil-status" className="dropdown-content">
                   <li onClick={() => (addResCivilStatus.value = "Single")}>
                     <a href="#">Single</a>
                   </li>

@@ -19,8 +19,8 @@ export default function Resident() {
   const MInit = async () => {
     await M.Modal.init(document.querySelectorAll(".modal"));
     await M.Dropdown.init(document.querySelectorAll(".dropdown-trigger"), {
-      constrainWidth: true,
-    });
+      constrainWidth: true
+    })
   };
 
   const SearchResidents = async (keyword) => {
@@ -29,6 +29,7 @@ export default function Resident() {
       fname: keyword,
       mname: keyword,
       lname: keyword,
+      occupation: keyword
     };
 
     const res = await axios.post(

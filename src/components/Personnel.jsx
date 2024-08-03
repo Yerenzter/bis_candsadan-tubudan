@@ -3,7 +3,7 @@ import { Loop, Tick, M } from "../lib";
 import axios from "axios";
 import AddPersonnel from "./Actions/AddPersonnel";
 import EditPersonnel, { FillAccountForm } from "./Actions/EditPersonnel";
-import DeletePersonnel from "./Actions/DeletePersonnel";
+import DeletePersonnel, { SetPersonnelInfo } from "./Actions/DeletePersonnel";
 
 export default function Resident() {
   useEffect(() => {
@@ -19,7 +19,8 @@ export default function Resident() {
   const MInit = async () => {
     await M.Modal.init(document.querySelectorAll(".modal"));
     await M.Dropdown.init(document.querySelectorAll(".dropdown-trigger"), {
-      constrainWidth: true,
+      constrainWidth: false,
+      container: document.querySelector("#wrapper")
     });
   };
 
@@ -56,6 +57,8 @@ export default function Resident() {
       <AddPersonnel />
       <EditPersonnel />
       <DeletePersonnel />
+
+      <div id="wrapper" className="fixed  z-50 top-10 right-0"></div>
 
       <div className="row">
         <div className="col s3 flex justify-start sticky z-10 left-0  top-10 bg-transparent">
